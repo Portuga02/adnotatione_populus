@@ -17,7 +17,8 @@
                         <h1> Seja bem vindo </h1>
                         <h2>{{ __('Você está Logado em nosso sistema!') }} </h2>
 
-                        <a href="{{ url('users') }}"> <i>Lista de usuários do sistema </i> </a>
+                        <a href="{{ url('users') }}"> <i>Lista de usuários do sistema </i> </a> <br>
+                        <a href="{{ url('users/new') }}">
                     </div>
                 </div>
             </div>

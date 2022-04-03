@@ -20,4 +20,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Route::get('/users', [App\Http\Controllers\UsuariosController::class, 'index']);
+Route::get('/users', [App\Http\Controllers\UsuariosController::class, 'index'])->middleware('auth');
+Route::get('/users/new', [App\Http\Controllers\UsuariosController::class, 'new'])->middleware('auth');
+Route::post('/users/add', [App\Http\Controllers\UsuariosController::class, 'add'])->middleware('auth');
+Route::get('/users/{id}/edit', [App\Http\Controllers\UsuariosController::class, 'edit'])->middleware('auth');
+Route::post('/users/update/{id}', [App\Http\Controllers\UsuariosController::class, 'update'])->middleware('auth');
+Route::delete('/users/delete/{id}', [App\Http\Controllers\UsuariosController::class, 'delete'])->middleware('auth');

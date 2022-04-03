@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Home do Sistema!') }}</div>
+                    <div class="card-header"><a href="{{ url('users/new') }}"> Novo Usuário</a></div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -15,9 +15,37 @@
                         @endif
 
                         <h2>{{ __('Lista dos usuários do sistema!') }} </h2>
-                        @foreach ($usuarios as $u)
-                            <p> [{{ $u->id }}] &nbsp;{{ $u->name }} | {{ $u->email }} </p>
-                        @endforeach
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Deletar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($usuarios as $u)
+                                    <tr>
+                                        <th scope="row">{{ $u->id }}</th>
+                                        <td>{{ $u->name }}</td>
+                                        <td>{{ $u->email }}</td>
+                                        <td> <a href="users/{{ $u->id }}/edit" type="button" class="btn btn-info">{{ 'Editar' }}</button>
+                                        </td>
+                                        <td>
+                                            <form action="users/delete/{{ $u->id }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-danger">{{ 'Deletar' }}</button>
+                                            </form>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

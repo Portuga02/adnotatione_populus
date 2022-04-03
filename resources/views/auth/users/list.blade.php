@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        {{ __('Lista dos usuários do sistema!') }}
+                        <h2>{{ __('Lista dos usuários do sistema!') }} </h2>
                     </div>
                 </div>
             </div>

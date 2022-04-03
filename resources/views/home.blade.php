@@ -14,7 +14,10 @@
                             </div>
                         @endif
 
-                        {{ __('Você está Logado em nosso sistema!') }}
+                        <h1> Seja bem vindo </h1>
+                        <h2>{{ __('Você está Logado em nosso sistema!') }} </h2>
+
+                        <a href="{{ url('users') }}"> <i>Lista de usuários do sistema </i> </a>
                     </div>
                 </div>
             </div>

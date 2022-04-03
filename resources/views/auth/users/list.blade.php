@@ -15,6 +15,9 @@
                         @endif
 
                         <h2>{{ __('Lista dos usuários do sistema!') }} </h2>
+                        @foreach ($usuarios as $u)
+                            <p> [{{ $u->id }}] &nbsp;{{ $u->name }} | {{ $u->email }} </p>
+                        @endforeach
                     </div>
                 </div>
             </div>
